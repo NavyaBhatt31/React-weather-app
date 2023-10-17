@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './App.css'; //included app.css
 import RegistrationForm from './RegistrationForm';
 import WeatherDisplay from './WeatherDisplay';
 import { getWeatherData } from './data/weatherapi';
