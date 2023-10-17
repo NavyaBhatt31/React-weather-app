@@ -11,6 +11,9 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+Or  Local:            http://localhost:3001        
+  On Your Network:  http://172.16.2.198:3001   
+
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 

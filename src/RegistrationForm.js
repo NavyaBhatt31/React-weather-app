@@ -1,50 +1,44 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import './App.css';
 
 const RegistrationForm = ({ onSubmit }) => {
   const navigate = useNavigate();
-  const [name, setName] = useState('');
-  const [gender, setGender] = useState('');
-  const [city, setCity] = useState('');
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const handleRegister = () => {
-    if (name && gender && city) {
-      // Save registration data to local storage (example)
-      saveRegistrationData({ name, gender, city });
-      // Call the onSubmit prop to handle the registration data in the parent component
-      onSubmit({ name, gender, city });
+  const onSubmitHandler = (data) => {
+    // Call the onSubmit prop to handle the registration data in the parent component
+    onSubmit(data);
 
-      // Redirect to the weather page
-      navigate('/weather');
-    }
-  };
-
-  const saveRegistrationData = (data) => {
-    // Example: Save data to local storage
-    localStorage.setItem('registrationData', JSON.stringify(data));
+    // Redirect to the weather page
+    navigate('/weather');
   };
 
   return (
     <div className="App">
       <h2>Registration Form</h2>
 
-      <label>Name:</label>
-      <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+      <form onSubmit={handleSubmit(onSubmitHandler)}>
+        <label>Name:</label>
+        <input type="text" {...register('name', { required: true })} />
+        {errors.name && <p className="error">Name is required</p>}
 
-      <label>Gender:</label>
-      <select value={gender} onChange={(e) => setGender(e.target.value)}>
-        {/* Options for gender */}
-        <option value="">Select Gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="others">Others</option>
-      </select>
+        <label>Gender:</label>
+        <select {...register('gender', { required: true })}>
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="others">Others</option>
+        </select>
+        {errors.gender && <p className="error">Please select a gender</p>}
 
-      <label>City:</label>
-      <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
+        <label>City:</label>
+        <input type="text" {...register('city', { required: true })} />
+        {errors.city && <p className="error">City is required</p>}
 
-      <button onClick={handleRegister}>Register</button>
+        <button type="submit">Register</button>
+      </form>
     </div>
   );
 };
