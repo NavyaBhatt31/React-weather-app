@@ -1,15 +1,22 @@
 .App {
   text-align: center;
+  /* align-self: center; */
 }
 /* App.css */
 
 /* Common Styles */
 .App {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 900px;
+  max-height: 900px;
+  margin: 0 auto; /* Center horizontally */
+  padding: 40px;
   background-color: #f4f4f4;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh; /* Set height to 100% of the viewport height */
 }
 
 /* ... (other common styles) */

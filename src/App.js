@@ -1,14 +1,31 @@
-import React, { useState } from 'react';
-import './App.css'; //included app.css
+// Import necessary dependencies
+import React, { useState, useEffect } from 'react';
+import './App.css';
 import RegistrationForm from './RegistrationForm';
 import WeatherDisplay from './WeatherDisplay';
 import { getWeatherData } from './data/weatherapi';
 import AppShell from './AppShell';
-import { BrowserRouter as Router } from 'react-router-dom'; // Add this line
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   const [registrationData, setRegistrationData] = useState(null);
   const [weatherdata, setWeatherData] = useState(null);
+  const [backgroundImage, setBackgroundImage] = useState('');
+
+  useEffect(() => {
+    // Fetch a random background image on component mount
+    fetchRandomBackground();
+  }, []);
+
+  const fetchRandomBackground = () => {
+    const numImagesAvailable = 1000; // Adjust this number based on the available images on Unsplash
+    const randomImageIndex = Math.floor(Math.random() * numImagesAvailable);
+    
+    fetch(`https://source.unsplash.com/collection/your-collection-id/?sig=${randomImageIndex}`)
+      .then((response) => {
+        setBackgroundImage(response.url);
+      });
+  };
 
   const handleRegistrationSubmit = (data) => {
     setRegistrationData(data);
@@ -18,8 +35,8 @@ function App() {
   };
 
   return (
-    <Router> {/* Wrap the entire App component with Router */}
-      <div className="App">
+    <Router>
+      <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
         {!registrationData ? (
           <RegistrationForm onSubmit={handleRegistrationSubmit} />
         ) : (
