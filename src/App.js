@@ -1,6 +1,6 @@
 // Import necessary dependencies
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './App.css'; // Import your CSS file
 import RegistrationForm from './RegistrationForm';
 import WeatherDisplay from './WeatherDisplay';
 import { getWeatherData } from './data/weatherapi';
@@ -20,7 +20,7 @@ function App() {
   const fetchRandomBackground = () => {
     const numImagesAvailable = 1000; // Adjust this number based on the available images on Unsplash
     const randomImageIndex = Math.floor(Math.random() * numImagesAvailable);
-    
+
     fetch(`https://source.unsplash.com/collection/your-collection-id/?sig=${randomImageIndex}`)
       .then((response) => {
         setBackgroundImage(response.url);

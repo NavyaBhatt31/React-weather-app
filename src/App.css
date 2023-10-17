@@ -1,38 +1,45 @@
-.App {
-  text-align: center;
-  /* align-self: center; */
-}
 /* App.css */
 
 /* Common Styles */
 .App {
   max-width: 900px;
-  max-height: 900px;
-  margin: 0 auto; /* Center horizontally */
+  margin: 0 auto;
   padding: 40px;
-  background-color: #f4f4f4;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(244, 244, 244, 0.6);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80vh; /* Set height to 100% of the viewport height */
+  height: 100vh;
+  margin-top: 60px;
+  background-size: cover;
+  border-color: black;
 }
 
 /* ... (other common styles) */
-
-
-
-/* App.css */
 
 /* General Styles */
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
+  justify-items: stretch;
 }
 
 /* Registration Form Styles */
+
+form {
+  background-color: rgba(218, 203, 203, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  margin: auto;
+  width: 80%;
+  max-width: 500px;
+  border: 2px solid #000;
+}
+
 h2 {
   color: #333;
 }
@@ -64,63 +71,16 @@ button:hover {
 
 .card {
   position: relative;
-  width: 70%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
   margin: auto;
   margin-bottom: 10px;
   margin-top: 1%;
   background: linear-gradient(45deg, #FD7665 30%, #E1E0E0 90%);
-  background-size: cover;
+  background-size: 100%;
   box-shadow: 5px 10px 5px 10px #fff;
   padding: 20px;
-}
-.title {
-  color: #fff;
-  font-weight: 800;
-  font-size: 30px;
-}
-.search-form {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.search-form input {
-  width: 90%;
-  height: 40px;
-  padding: 5px;
-  border: 1px solid #000000;
-  background: #000000;
-  color: #fff;
-  border-radius: 10px;
-  margin: 0 auto;
-}
-.search-form button {
-  width: 8%;
-  height: 50px;
-  padding: 5px;
-  border: none;
-  border-radius: 10px !important;
-  background: linear-gradient(45deg, #8e0e00 30%, #1f1c18 90%);
-  font-weight: 400;
-  font-size: 18px;
-  color: #fff;
-  cursor: pointer;
-}
-.search-form button:hover {
-  background: linear-gradient(45deg, #FFAFBD 30%, #ffc3a0 90%);
-  color: #000000;
-}
-.main-container {
-  width: 100%;
-  height: auto;
-  color: #fff;
-  text-align: center;
-  margin-top: 30px;
-}
-.main-container h4 {
-  font-size: 25px;
-  font-weight: 800;
+  box-sizing: 1;
 }
 .main-container .weather-icon img {
   width: 100px;
@@ -137,7 +97,15 @@ button:hover {
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 1200px) {
+  .search-form input {
+    width: 100%;
+  }
+  .search-form button {
+    width: 25%;
+  }
+}
+@media only screen and (max-width: 1200px) {
   .search-form input {
     width: 70%;
   }
@@ -145,15 +113,7 @@ button:hover {
     width: 25%;
   }
 }
-@media only screen and (max-width: 600px) {
-  .search-form input {
-    width: 70%;
-  }
-  .search-form button {
-    width: 25%;
-  }
-}
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 900px){
   .search-form input {
     width: 80%;
   }
@@ -162,7 +122,7 @@ button:hover {
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1200px) {
   .search-form input {
     width: 80%;
   }
